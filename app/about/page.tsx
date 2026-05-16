@@ -6,7 +6,7 @@ export default function AboutPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionTitle
           label="Giới thiệu"
-          title="MENSTYLE - Thời trang nam tối giản"
+          title="TOSTYLE - Thời trang nam tối giản"
           description="Một project mẫu dùng Next.js App Router, TypeScript và Tailwind CSS để xây dựng website bán quần áo nam."
         />
 

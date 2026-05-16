@@ -7,7 +7,7 @@ export default function ContactPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionTitle
           label="Liên hệ"
-          title="Gửi thông tin cho MENSTYLE"
+          title="Gửi thông tin cho TOSTYLE"
           description="Form liên hệ giả lập, phù hợp cho project frontend chưa cần backend."
         />
 
