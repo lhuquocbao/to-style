@@ -7,8 +7,9 @@ import { useCart } from "./CartProvider";
 
 const navItems = [
   { label: "Trang chủ", href: "/" },
-  { label: "Sản phẩm", href: "/products" },
-  { label: "Giới thiệu", href: "/about" },
+  { label: "Sản phẩm mới", href: "/products" },
+  { label: "Thời trang nam", href: "/products" },
+  { label: "Bộ sưu tập", href: "/about" },
   { label: "Liên hệ", href: "/contact" }
 ];
 
@@ -18,21 +19,30 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white/95 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <Link href="/" className="text-xl font-black tracking-tight text-black">
-          TO<span className="text-zinc-500">STYLE</span>
-        </Link>
+    <header className="sticky top-0 z-50 bg-white text-black shadow-[0_1px_0_rgba(0,0,0,0.08)]">
+      <div className="hidden border-b border-zinc-100 py-2 text-center text-xs font-medium text-zinc-600 lg:block">
+        Email: lhu.quocbao@gmail.com - Hotline: 0975397177 - Địa chỉ: TP. Biên Hòa, Đồng Nai, Việt Nam
+      </div>
 
-        <nav className="hidden items-center gap-8 md:flex">
-          {navItems.map((item) => {
+      <div className="mx-auto grid max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-4 py-4 sm:px-6 lg:px-8">
+        <button
+          type="button"
+          onClick={() => setIsOpen((value) => !value)}
+          className="text-sm font-bold uppercase tracking-[0.16em] md:hidden"
+          aria-label="Mở menu"
+        >
+          Menu
+        </button>
+
+        <nav className="hidden items-center gap-7 md:flex">
+          {navItems.slice(0, 3).map((item) => {
             const isActive = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
             return (
               <Link
-                key={item.href}
+                key={item.label}
                 href={item.href}
-                className={`text-sm font-medium transition hover:text-black ${
-                  isActive ? "text-black" : "text-zinc-500"
+                className={`text-[13px] font-bold uppercase tracking-[0.12em] transition hover:text-zinc-500 ${
+                  isActive ? "text-black" : "text-zinc-700"
                 }`}
               >
                 {item.label}
@@ -41,35 +51,57 @@ export default function Header() {
           })}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <Link href="/" className="justify-self-center text-3xl font-black uppercase tracking-[0.18em]">
+          TO<span className="font-light">STYLE</span>
+        </Link>
+
+        <div className="flex items-center justify-end gap-6">
+          <nav className="hidden items-center gap-7 lg:flex">
+            {navItems.slice(3).map((item) => {
+              const isActive = pathname.startsWith(item.href);
+              return (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className={`text-[13px] font-bold uppercase tracking-[0.12em] transition hover:text-zinc-500 ${
+                    isActive ? "text-black" : "text-zinc-700"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </nav>
+
           <Link
             href="/cart"
-            className="relative rounded-full border border-zinc-200 px-4 py-2 text-sm font-semibold transition hover:border-black"
+            className="relative text-[13px] font-bold uppercase tracking-[0.12em] text-zinc-800 transition hover:text-black"
+            aria-label={`Giỏ hàng có ${totalItems} sản phẩm`}
           >
             Giỏ hàng
-            <span className="ml-2 rounded-full bg-black px-2 py-0.5 text-xs text-white">{totalItems}</span>
+            <span className="ml-2 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-black px-1.5 text-[11px] text-white">
+              {totalItems}
+            </span>
           </Link>
-
-          <button
-            type="button"
-            onClick={() => setIsOpen((value) => !value)}
-            className="rounded-lg border border-zinc-200 px-3 py-2 text-sm font-semibold md:hidden"
-            aria-label="Mở menu"
-          >
-            Menu
-          </button>
         </div>
       </div>
 
       {isOpen && (
-        <div className="border-t border-zinc-200 bg-white px-4 py-3 md:hidden">
-          <nav className="mx-auto flex max-w-7xl flex-col gap-2">
+        <div className="border-t border-zinc-100 bg-white px-4 py-4 md:hidden">
+          <div className="mx-auto mb-3 max-w-7xl text-xs leading-6 text-zinc-600">
+            Email: lhu.quocbao@gmail.com
+            <br />
+            Hotline: 0975397177
+            <br />
+            Địa chỉ: TP. Biên Hòa, Đồng Nai, Việt Nam
+          </div>
+          <nav className="mx-auto flex max-w-7xl flex-col">
             {navItems.map((item) => (
               <Link
-                key={item.href}
+                key={item.label}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="rounded-lg px-3 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-100"
+                className="border-b border-zinc-100 py-3 text-sm font-bold uppercase tracking-[0.12em] text-zinc-800"
               >
                 {item.label}
               </Link>
