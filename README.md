@@ -14,7 +14,7 @@
 
 ## 2. Mô tả website
 
-Men Style Shop là website bán quần áo nam được xây dựng bằng **Next.js**, **TypeScript** và **Tailwind CSS**.
+To Style Shop là website bán quần áo nam được xây dựng bằng **Next.js**, **TypeScript** và **Tailwind CSS**.
 
 Website có giao diện hiện đại, tối giản, responsive và có các chức năng cơ bản của một website bán hàng như hiển thị sản phẩm, lọc sản phẩm, xem chi tiết sản phẩm, giỏ hàng giả lập và form liên hệ.
 
@@ -94,7 +94,7 @@ API này lấy dữ liệu từ file `lib/data.ts` và trả về danh sách s�
 ## 7. Cấu trúc thư mục chính
 
 ```txt
-men-style-shop/
+to-style-shop/
 ├── app/
 │   ├── api/products/route.ts
 │   ├── about/page.tsx
@@ -239,4 +239,4 @@ Hướng phát triển:
 
 ## 15. Kết luận
 
-Project Men Style Shop đáp ứng các yêu cầu cơ bản của bài giữa kỳ học phần Lập trình Front-End. Website có routing, dynamic route, API giả lập, dữ liệu mẫu, giỏ hàng giả lập và giao diện responsive.
+Project To Style Shop đáp ứng các yêu cầu cơ bản của bài giữa kỳ học phần Lập trình Front-End. Website có routing, dynamic route, API giả lập, dữ liệu mẫu, giỏ hàng giả lập và giao diện responsive.
