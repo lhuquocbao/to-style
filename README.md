@@ -196,10 +196,9 @@ https://github.com/lhuquocbao/to-style
 ## 12. Link video demo cá nhân
 
 ```txt
-
+https://drive.google.com/drive/folders/1ofk0rNobBZudrAwbsa91N4RoGdMHDpZN
 ```
 
----
 
 ## 13. Kết quả đã thực hiện
 
